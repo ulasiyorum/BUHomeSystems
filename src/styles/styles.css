@@ -1,0 +1,15 @@
+* {
+    font-family: 'Lexend Deca';
+}
+
+.color-primary {
+    color: #70ACB1;
+}
+
+.color-primary:hover {
+    color: #61959a;
+}
+
+.text-dark:hover {
+    color: #4a4a4a!important;
+}
