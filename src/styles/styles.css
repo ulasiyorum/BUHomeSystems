@@ -1,15 +1,62 @@
 * {
     font-family: 'Lexend Deca';
+    
 }
 
-.color-primary {
-    color: #70ACB1;
+body {
+    background: linear-gradient(to bottom, #f1f6f9, #c9d6ff);
+    height: 100%;
+}
+ul {
+    list-style: none;
 }
 
-.color-primary:hover {
-    color: #61959a;
+.active {
+    opacity: 1!important;
+    animation-name: fade-in;
+    transition: 0.4s;
+}
+
+.notActive {
+    opacity: 0;
+    transition: 0.4s;
+}
+.middle {
+    display: flex;
+    height: 80vh;
+    width: 100%;
+    align-items: center;
+}
+
+.middle img {
+    border-radius: 16px;
+    max-width: 30%;
 }
 
 .text-dark:hover {
     color: #4a4a4a!important;
+}
+
+.fade-in-35 {
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    animation-name: fade-in;
+    animation-timing-function: ease-in-out;
+}
+
+.fade-in-65 {
+    animation-duration: 650ms;
+    animation-fill-mode: forwards;
+    animation-name: fade-in;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        margin-bottom: 10%;
+    } 100% {
+        opacity: 1;
+        margin-bottom: 0%;
+    }
 }

@@ -21,32 +21,92 @@
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item mx-2">
                     <a class="nav-link active text-dark" aria-current="page" href="#"><i class="fa-solid fa-house mx-2"></i>Home</a>
                   </li>
-                  <li class="nav-item text-dark mx-2">
-                    <a class="nav-link text-dark" href="#"><i class="fa-solid fa-dollar-sign mx-2"></i>Plans</a>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link text-dark" id="plansLink" href="#"><i class="fa-solid fa-dollar-sign mx-2"></i>   Plans</a>
                   </li>
-                  <li class="nav-item mx-2 d-flex flex-row">
+                  <li class="nav-item mx-2">
                     <a class="nav-link text-dark" href="#"><i class="fa-solid fa-user mx-2"></i>Sign In</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
               </div>
             </div>
           </nav>
           
-          <div class="middle">
-            <h1>
+          <div class="middle d-flex flex-row justify-content-evenly align-items-center">
+            <h1 class="fade-in-35 d-flex flex-column align-items-center">
               <strong>Organize your household.</strong>
+              <a class="small" id="showPlans" href="#">See Plans</a>
             </h1>
+            <img src="../Images/Brand/Logo/Dark/logo_transparent.png" class="img-fluid fade-in-35 fade-in-65" alt="Home image">
           </div>
 
+          <div id="plansContainer" class="container row justify-content-evenly align-items-center">
+            <div class="card notActive" style="width: 20rem;">
+              <div class="card-body">
+                <h5 class="card-title">FREE <span class="badge bg-info">Starter</span></h5>
+                <div>
+                  <p>Our Free Tier Membership Allows:</p>
+                  <div>
+                    <i class="fa-solid fa-check mx-2"></i>
+                    To-Do Lists
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-check mx-2"></i>
+                    Control Light Switchs
+                  </div>
+                  <div>
+                    <i class="fa-solid fa-check mx-2"></i>
+                    Control Light Levels
+                  </div>
+                <a href="#" class="btn btn-primary mt-2">TRY OUT</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card notActive" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title">ADVANCED <span class="badge bg-primary">House Control</span></h5>
+              <div>
+                <p>Our Advanced Tier Membership Allows Additionally:</p>
+                <div>
+                  <i class="fa-solid fa-check mx-2"></i>
+                  Control Door Locks
+                </div>
+                <div>
+                  <i class="fa-solid fa-check mx-2"></i>
+                  Control Air Conditioner
+                </div>
+                <div>
+                  <i class="fa-solid fa-check mx-2"></i>
+                  Temperature Control
+                </div>
+              <a href="#" class="btn btn-primary mt-2">5$/Month</a>
+            </div>
+          </div>  
+        </div>
+
+        <div class="card notActive" style="width: 20rem;">
+          <div class="card-body">
+            <h5 class="card-title">PREMIUM <span class="badge bg-secondary">Security</span></h5>
+            <div>
+              <p>Our Premium Tier Membership Allows Additionally:</p>
+              <div>
+                <i class="fa-solid fa-check mx-2"></i>
+                Security Cameras
+              </div>
+              <div>
+                <i class="fa-solid fa-check mx-2"></i>
+                See Logs for House Events
+              </div>
+            <a href="#" class="btn btn-primary mt-2">15$/Month</a>
+          </div>
+        </div>  
+      </div>
         </div>
       </section>
     </div>
