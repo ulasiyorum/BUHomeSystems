@@ -29,24 +29,39 @@ if(isset($_POST['submit'])){
    } 
 
    // password not matched
-   if($pass != $cpass){
-    $error[] = 'password not matched!';
- }
+    if($pass != $cpass){
+        $error[] = 'password not matched!';
+    }
 
- //same email and not more than one admin
- foreach ($dataArray as $data) {
-    if ($data['email'] == $email) {
-       $error[] = 'An account with this email is already exists.';
-       break;
+    //same email and not more than one admin
+    foreach ($dataArray as $data) {
+        if ($data['email'] == $email) {
+        $error[] = 'An account with this email is already exists.';
+        break;
+        }
+        // Check if the email already exists in the file with user_type = "admin"
+        else if($user_type == "producer"){
+        if($data['user_type'] == "producer"){
+            $error[] = 'Producer account is already exists.';
+            break;
+        } 
+        }
     }
-    // Check if the email already exists in the file with user_type = "admin"
-    else if($user_type == "producer"){
-       if($data['user_type'] == "producer"){
-          $error[] = 'Producer account is already exists.';
-          break;
-       } 
-    }
- }
+
+    // If no error has occurred, create the new user account
+        if (!isset($error)) {
+            // Create an object
+            $data = new stdClass();
+            $data->name = $name; $data->email = $email; $data->password = $pass;
+            $data->user_type = $user_type; //CREATE AN ARRAY $dataArray = (array) $data; 
+            //Convert the object to a JSON string
+            $jsonString = json_encode($dataArray);
+            $filename = 'formdata.txt'; $mode = 'a'; file_put_contents($filename,
+            $jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
+        }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
