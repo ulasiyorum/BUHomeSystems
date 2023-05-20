@@ -27,6 +27,26 @@ if(isset($_POST['submit'])){
  
       } 
    } 
+
+   // password not matched
+   if($pass != $cpass){
+    $error[] = 'password not matched!';
+ }
+
+ //same email and not more than one admin
+ foreach ($dataArray as $data) {
+    if ($data['email'] == $email) {
+       $error[] = 'An account with this email is already exists.';
+       break;
+    }
+    // Check if the email already exists in the file with user_type = "admin"
+    else if($user_type == "producer"){
+       if($data['user_type'] == "producer"){
+          $error[] = 'Producer account is already exists.';
+          break;
+       } 
+    }
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
