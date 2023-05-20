@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
    // Check if all required fields have been filled in
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) && !empty($user_type)) {
    
-      // Check if the email already exists in the file with user_type = "admin"
+      
       $fileContents = file_get_contents('formdata.txt');
       $jsonStrings = explode(PHP_EOL, $fileContents);
       $jsonStrings = array_filter($jsonStrings);
@@ -27,6 +27,7 @@ if(isset($_POST['submit'])){
          if ($data['email'] == $email) {
             $error[] = 'An account with this email is already exists.';
             break;
+            // Check if the email already exists in the file with user_type = "producer"
          }else if($user_type == "producer"){
             if($data['user_type'] == "producer"){
                $error[] = 'Producer account is already exists.';
@@ -40,11 +41,12 @@ if(isset($_POST['submit'])){
          // Create an object
          $data = new stdClass();
          $data->name = $name; $data->email = $email; $data->password = $pass;
-   $data->user_type = $user_type; //CREATE AN ARRAY $dataArray = (array) $data; 
+         $data->user_type = $user_type; 
+   //CREATE AN ARRAY $dataArray = (array) $data; 
    //Convert the object to a JSON string
- $jsonString = json_encode($dataArray);
-$filename = 'formdata.txt'; $mode = 'a'; file_put_contents($filename,
-$jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
+   $jsonString = json_encode($dataArray);
+   $filename = 'formdata.txt'; $mode = 'a'; file_put_contents($filename,
+   $jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
          } 
       } 
    } 
@@ -63,16 +65,17 @@ $jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     
 
-   <div class="form-container w-100 h-100">
+   <div class="form-container p-2">
 
    <form action="" method="post">
    <div class="text-center">
-      <h1 class="mb-3 ">Free <span class="btn btn-primary opacity-75 pe-none">Starter</span></h1>
+      <h1 class="mb-3 ">FREE <span class="btn btn-info opacity-75 pe-none text-light fw-bolder rounded-pill">Starter</span></h1>
       <h3>register now</h3>
     </div>
       
@@ -87,10 +90,6 @@ $jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
          <input type="email" name="email" required placeholder="enter your email">
          <input type="password" name="password" required placeholder="enter your password">
          <input type="password" name="cpassword" required placeholder="confirm your password">
-         <select name="user_type">
-            <option value="consumer">consumer</option>
-            <option value="producer">producer</option>
-         </select>
          <input type="submit" name="submit" value="register now" class="form-btn">
          <p>already have an account? <a href="login_form.php">login now</a></p>
       </form>
