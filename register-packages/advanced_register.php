@@ -10,44 +10,21 @@ if(isset($_POST['submit'])){
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) && !empty($user_type)) {
    
       
-      $fileContents = file_get_contents('formdata.txt');
-      $jsonStrings = explode(PHP_EOL, $fileContents);
-      $jsonStrings = array_filter($jsonStrings);
-      $dataArray = array_map(function($jsonString) {
-         return json_decode($jsonString, true);
-      }, $jsonStrings);
+      // Read the contents of the file into a string
+   $fileContents = file_get_contents('formdata.txt');
 
-      // password not matched
-      if($pass != $cpass){
-         $error[] = 'password not matched!';
-      }
+   // Explode the file contents by newline character to get each JSON object as a separate string
+   $jsonStrings = explode(PHP_EOL, $fileContents);
 
-      //same email and not more than one admin
-      foreach ($dataArray as $data) {
-         if ($data['email'] == $email) {
-            $error[] = 'An account with this email is already exists.';
-            break;
-         }
-         // Check if the email already exists in the file with user_type = "admin"
-         else if($user_type == "producer"){
-            if($data['user_type'] == "producer"){
-               $error[] = 'Producer account is already exists.';
-               break;
-            } 
-         }
-      }
-      
-      // If no error has occurred, create the new user account
-      if (!isset($error)) {
-         // Create an object
-         $data = new stdClass();
-         $data->name = $name; $data->email = $email; $data->password = $pass;
-   $data->user_type = $user_type; //CREATE AN ARRAY $dataArray = (array) $data; 
-   //Convert the object to a JSON string
- $jsonString = json_encode($dataArray);
-$filename = 'formdata.txt'; $mode = 'a'; file_put_contents($filename,
-$jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
-         } 
+   // Remove any empty strings
+   $jsonStrings = array_filter($jsonStrings);
+
+      // Convert each JSON string to an array
+   $dataArray = array_map(function($jsonString) {
+       return json_decode($jsonString, true);
+   }, $jsonStrings);
+
+ 
       } 
    } 
 ?>
@@ -58,6 +35,7 @@ $jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced_Register</title>
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
