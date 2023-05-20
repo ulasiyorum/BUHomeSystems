@@ -28,6 +28,11 @@ ul {
     align-items: center;
 }
 
+.iconAsImage {
+    scale: 3;
+    margin-top: 10%;
+}
+
 .middle img {
     border-radius: 16px;
     max-width: 30%;
