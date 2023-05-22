@@ -28,6 +28,23 @@ ul {
     align-items: center;
 }
 
+.toDoList {
+    width: 32rem;
+    height: 24rem;
+    display: flex;
+    border-radius: 0.35rem;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.addToDo {
+    margin-top: auto;
+    height: 2.5vw;
+    width: 2.5vw;
+    margin-bottom: 0.24rem;
+    margin-right: 0.24rem;
+    margin-left: auto;
+}
+
 .iconAsImage {
     scale: 3;
     margin-top: 10%;
