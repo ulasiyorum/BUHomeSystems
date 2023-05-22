@@ -62,45 +62,45 @@ if(isset($_POST['submit'])){
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../forms.css">
     
 </head>
 <body>
-<div class="form-container p-2">
+    <div class="form-container p-2">
 
-<form action="" method="post">
-<div class="text-center">
-   <h1 class="mb-3 ">ADVANCED <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #0d6efd;">House Control</span></h1>
+   <form action="" method="post">
+   <div class="text-center">
+      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #0d6efd;">Security</span></h1>
    <h3>register now</h3>
- </div>
-   
-   <?php
-      if(isset($error)){
-         foreach($error as $error){
-            echo '<span class="error-msg">'.$error.'</span>';
-         };
-      }
-      ?>
-      <input type="text" name="name" required placeholder="enter your name">
-      <input type="email" name="email" required placeholder="enter your email">
-      <input type="password" name="password" required placeholder="enter your password">
-      <input type="password" name="cpassword" required placeholder="confirm your password">
-      <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>already have an account? <a href="login_form.php">login now</a></p>
-   </form>
+    </div>
+      
+      <?php
+         if(isset($error)){
+            foreach($error as $error){
+               echo '<span class="error-msg">'.$error.'</span>';
+            };
+         }
+         ?>
+         <input type="text" name="name" required placeholder="enter your name">
+         <input type="email" name="email" required placeholder="enter your email">
+         <input type="password" name="password" required placeholder="enter your password">
+         <input type="password" name="cpassword" required placeholder="confirm your password">
+         <input type="submit" name="submit" value="register now" class="form-btn">
+         <p>already have an account? <a href="login_form.php">login now</a></p>
+      </form>
 
-   </div>
+      <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
 
- <script
-   src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-   integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-   crossorigin="anonymous"
- ></script>
- <script
-   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-   integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-   crossorigin="anonymous"
- ></script>
+      </div>
 
     
 </body>
