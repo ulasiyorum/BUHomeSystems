@@ -46,15 +46,11 @@ session_start();
        }
        if ($matchFound) {
            // Redirect to the appropriate page based on user type
-           if ($userType == 'admin') {
-            $_SESSION['admin_name'] = $data['name'];
-            header('location:consumer_landing.php');
-            exit;
-        } else if ($userType == 'user') {
+           
             $_SESSION['user_name'] = $data['name'];
-            header('location:consumer_landing.php');
+            header('location:../consumer_landing.php');
             exit;
-        }
+        
        } 
        if($emailNotExist) {
          $error[] = 'Email is NOT exist!';
