@@ -4,13 +4,13 @@ if(isset($_POST['submit'])){
    $email = $_POST['email'];
    $pass = $_POST['password'];
    $cpass = $_POST['cpassword'];
-   $user_type = $_POST['user_type'];
+   
 
    // Check if all required fields have been filled in
-   if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) && !empty($user_type)) {
+   if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) ) {
    
       
-      $fileContents = file_get_contents('formdata.txt');
+      $fileContents = file_get_contents('../premium_users.txt');
       $jsonStrings = explode(PHP_EOL, $fileContents);
       $jsonStrings = array_filter($jsonStrings);
       $dataArray = array_map(function($jsonString) {
@@ -28,11 +28,6 @@ if(isset($_POST['submit'])){
             $error[] = 'An account with this email is already exists.';
             break;
             // Check if the email already exists in the file with user_type = "producer"
-         }else if($user_type == "producer"){
-            if($data['user_type'] == "producer"){
-               $error[] = 'Producer account is already exists.';
-               break;
-            } 
          }
       }
       
@@ -40,13 +35,17 @@ if(isset($_POST['submit'])){
       if (!isset($error)) {
          // Create an object
          $data = new stdClass();
-         $data->name = $name; $data->email = $email; $data->password = $pass;
-         $data->user_type = $user_type; 
-   //CREATE AN ARRAY $dataArray = (array) $data; 
+         $data->name = $name; 
+         $data->email = $email; $data->password = $pass;
+
+   //CREATE AN ARRAY 
+   $dataArray = (array) $data; 
+
    //Convert the object to a JSON string
    $jsonString = json_encode($dataArray);
-   $filename = 'formdata.txt'; $mode = 'a'; file_put_contents($filename,
-   $jsonString . PHP_EOL, FILE_APPEND); header("Location: login_form.php"); exit();
+   $filename = '../premium_users.txt'; $mode = 'a'; file_put_contents($filename,
+   $jsonString . PHP_EOL, FILE_APPEND); 
+   header("Location: ../login-forms/premium_login.php"); exit();
          } 
       } 
    } 
@@ -57,7 +56,7 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced_Register</title>
+    <title>Advanced Register</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
