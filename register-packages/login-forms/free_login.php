@@ -47,8 +47,9 @@ session_start();
        if ($matchFound) {
            // Redirect to the appropriate page based on user type
            
-            $_SESSION['user_name'] = $data['name'];
-            header('location:../consumer_landing.php');
+            $_SESSION['user_name'] = $userName;
+            $_SESSION['email_info'] = $email;
+            header('location:../consumer_users.php');
             exit;
         
        } 
