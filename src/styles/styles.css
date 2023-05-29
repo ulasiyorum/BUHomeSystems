@@ -37,12 +37,33 @@ ul {
 }
 
 .addToDo {
+    display: flex;
+    flex-direction: row;
     margin-top: auto;
-    height: 2.5vw;
-    width: 2.5vw;
-    margin-bottom: 0.24rem;
-    margin-right: 0.24rem;
-    margin-left: auto;
+    margin-left: 0.4rem;
+    margin-bottom: 0.48rem;
+    margin-right: 0.48rem;
+    padding: 1vw;
+    justify-content: space-between;
+}
+
+.addToDo input {
+    width: 12vw;
+    border: 2px solid black;
+    border-radius: 1vh;
+}
+
+.air-conditioner {
+    width: 50vw;
+    height: 24vh;
+    border-radius: 1vw;
+}
+
+.switches {
+    width: 36vw;
+    border-radius: 2vw;
+    height: 24vh;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .iconAsImage {
