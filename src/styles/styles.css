@@ -55,8 +55,20 @@ ul {
 
 .air-conditioner {
     width: 50vw;
+    display: flex;
+    flex-direction: wrap;
     height: 24vh;
+    justify-content: space-evenly;
     border-radius: 1vw;
+}
+
+.air-conditioner button {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: transparent;
+    border-radius: 100%;
 }
 
 .switches {
