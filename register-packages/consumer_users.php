@@ -121,7 +121,7 @@ if(isset($_POST['submit'])){
    </form>
 
    </div>
-   <div class="row text-center mx-5" id="avatars">
+   <div class="row mx-auto" id="avatars">
     <div class="col-lg-3 col-md-6 col-sm-12 ">
       
         <img src="avatars/av1.jpg" alt="" class="img-fluid rounded-circle">

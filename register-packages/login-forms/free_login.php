@@ -80,7 +80,11 @@ session_start();
 <div class="form-container">
 
 <form method="post" action="">
-   <h3>login now</h3>
+<div class="text-center">
+      <h1 class="mb-3 ">FREE <span class="btn btn-info opacity-75 pe-none text-light fw-bolder rounded-pill">Starter</span></h1>
+      <h3>login now</h3>
+    </div>
+   
    <?php
    if(isset($error)){
       foreach($error as $error){
@@ -92,7 +96,6 @@ session_start();
    <input type="email" name="email" required placeholder="enter your email" >
    <input type="password" name="password" required placeholder="enter your password" >
    <input type="submit" name="submit" value="login now" class="form-btn">
-   <p>don't have an account? <a href="register_form.php">register now</a></p>
    
 </form>
 

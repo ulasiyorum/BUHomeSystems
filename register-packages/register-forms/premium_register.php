@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post">
    <div class="text-center">
-      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #0d6efd;">Security</span></h1>
+      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Security</span></h1>
    <h3>register now</h3>
     </div>
       
@@ -85,7 +85,7 @@ if(isset($_POST['submit'])){
          <input type="password" name="password" required placeholder="enter your password">
          <input type="password" name="cpassword" required placeholder="confirm your password">
          <input type="submit" name="submit" value="register now" class="form-btn">
-         <p>already have an account? <a href="login_form.php">login now</a></p>
+      
       </form>
 
       <script

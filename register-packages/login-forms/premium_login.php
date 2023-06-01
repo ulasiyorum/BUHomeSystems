@@ -46,7 +46,10 @@ session_start();
        }
        if ($matchFound) {
          // Redirect to the appropriate page based on user type
-         print('işlem başarılı');
+            $_SESSION['user_name'] = $userName;
+            $_SESSION['email_info'] = $email;
+            header('location:../consumer_users.php');
+            exit;
      } 
        if($emailNotExist) {
          $error[] = 'Email is NOT exist!';
@@ -75,7 +78,10 @@ session_start();
 <div class="form-container">
 
 <form method="post" action="">
+<div class="text-center">
+      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Security</span></h1>
    <h3>login now</h3>
+    </div>
    <?php
    if(isset($error)){
       foreach($error as $error){
@@ -87,7 +93,7 @@ session_start();
    <input type="email" name="email" required placeholder="enter your email" >
    <input type="password" name="password" required placeholder="enter your password" >
    <input type="submit" name="submit" value="login now" class="form-btn">
-   <p>don't have an account? <a href="register_form.php">register now</a></p>
+  
    
 </form>
 
