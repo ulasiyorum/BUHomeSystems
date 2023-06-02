@@ -2,9 +2,9 @@
 session_start();
 
 if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']))){
-    header('location:login-forms/free_login.php');
+    header('location:../login-forms/advanced_login.php');
 }
-$allUsers = json_decode(file_get_contents('free_sub_users.json'));
+$allUsers = json_decode(file_get_contents('../sub_users/advanced_sub_users.json'));
 $currentUsers = array_filter($allUsers, fn($user) => $user->email == $_SESSION['email_info']);
 ?>
 <?php 
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) ) {
    
       
-      $fileContents = file_get_contents('free_users.txt');
+      $fileContents = file_get_contents('../advanced_users.txt');
       $jsonStrings = explode(PHP_EOL, $fileContents);
       $jsonStrings = array_filter($jsonStrings);
       $dataArray = array_map(function($jsonString) {
@@ -49,9 +49,9 @@ if(isset($_POST['submit'])){
 
         //Convert the object to a JSON string
         $jsonString = json_encode($allUsers);
-        file_put_contents('free_sub_users.json', $jsonString);
+        file_put_contents('../sub_users/advanced_sub_users.json', $jsonString);
         
-        header("Location: consumer_users.php"); 
+        header("Location: advanced_select_users.php"); 
         exit();
         } 
       } 
@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="forms.css">
+    <link rel="stylesheet" href="../forms.css">
     <style>
       .form-popup {
         display: none;
@@ -133,9 +133,9 @@ if(isset($_POST['submit'])){
   
    <div class="row mx-auto" id="avatars">
       <div class="col-lg-3 col-md-6 col-sm-12 ">
-         <form action="app-pages/admin.php" method="post">
+         <form action="../app-pages/admin.php" method="post">
             <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent;">
-               <img src="avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
+               <img src="../avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
             </button>
          </form>
@@ -144,9 +144,9 @@ if(isset($_POST['submit'])){
     <?php foreach($currentUsers as $key => $subUser): ?>
 
       <div class="col-lg-3 col-md-6 col-sm-12">
-            <form action="app-pages/admin.php" method="post">
+            <form action="../app-pages/admin.php" method="post">
                <button name="username" value="<?= $subUser->name ?>" type="submit" style="background-color: transparent;">
-                  <img src="avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
+                  <img src="../avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
                   <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?= $subUser->name ?></span></h1>
                </button>
             </form>

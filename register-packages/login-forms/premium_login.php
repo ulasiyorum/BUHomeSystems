@@ -48,7 +48,7 @@ session_start();
          // Redirect to the appropriate page based on user type
             $_SESSION['user_name'] = $userName;
             $_SESSION['email_info'] = $email;
-            header('location:../consumer_users.php');
+            header('location:../select_users/premium_select_users.php');
             exit;
      } 
        if($emailNotExist) {

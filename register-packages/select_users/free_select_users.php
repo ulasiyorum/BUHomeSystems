@@ -4,7 +4,7 @@ session_start();
 if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']))){
     header('location:../login-forms/free_login.php');
 }
-$allUsers = json_decode(file_get_contents('../free_sub_users.json'));
+$allUsers = json_decode(file_get_contents('../sub_users/free_sub_users.json'));
 $currentUsers = array_filter($allUsers, fn($user) => $user->email == $_SESSION['email_info']);
 ?>
 <?php 
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
 
         //Convert the object to a JSON string
         $jsonString = json_encode($allUsers);
-        file_put_contents('../free_sub_users.json', $jsonString);
+        file_put_contents('../sub_users/free_sub_users.json', $jsonString);
         
         header("Location: free_select_users.php"); 
         exit();
