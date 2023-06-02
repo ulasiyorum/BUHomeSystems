@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) ) {
    
       
-      $fileContents = file_get_contents('../free_users.txt');
+      $fileContents = file_get_contents('../package-owners/free_users.txt');
       $jsonStrings = explode(PHP_EOL, $fileContents);
       $jsonStrings = array_filter($jsonStrings);
       $dataArray = array_map(function($jsonString) {
@@ -149,8 +149,8 @@ if(isset($_POST['submit'])){
     <?php foreach($currentUsers as $key => $subUser): ?>
 
       <div class="col-lg-3 col-md-6 col-sm-12">
+            <button class="bg-danger text-light p-2 float-end"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
             <form action="../app-pages/admin.php" method="post">
-               <button class="bg-danger text-light p-2 float-end"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
                <button name="username" value="<?= $subUser->name ?>" type="submit" style="background-color: transparent;">
                   <img src="../avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
                   <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?= $subUser->name ?></span></h1>

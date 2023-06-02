@@ -9,7 +9,7 @@ session_start();
    $password = $_POST['password'];
 
    // Read the contents of the file into a string
-   $fileContents = file_get_contents('../advanced_users.txt');
+   $fileContents = file_get_contents('../package-owners/advanced_users.txt');
 
    // Explode the file contents by newline character to get each JSON object as a separate string
    $jsonStrings = explode(PHP_EOL, $fileContents);

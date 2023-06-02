@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) ) {
    
       
-      $fileContents = file_get_contents('../advanced_users.txt');
+      $fileContents = file_get_contents('../package-owners/advanced_users.txt');
       $jsonStrings = explode(PHP_EOL, $fileContents);
       $jsonStrings = array_filter($jsonStrings);
       $dataArray = array_map(function($jsonString) {
