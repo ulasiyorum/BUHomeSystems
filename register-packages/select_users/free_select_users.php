@@ -31,10 +31,8 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }
 
-      if(!in_array($email, array_map(fn($item) => $item['email'],$dataArray))) {
-         if ($data['email'] != $email) {
-            $error[] = 'An account with this email does not exist. You can not add a new user!';
-         }
+      if($email != $_SESSION['email_info']) {
+            $error[] = 'This email does not match with yours. You can not add a new user!';
       }
       
       // If no error has occurred, create the new user account

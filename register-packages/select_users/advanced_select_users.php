@@ -31,10 +31,8 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }
 
-      if(!in_array($email, array_map(fn($item) => $item['email'],$dataArray))) {
-         if ($data['email'] != $email) {
-            $error[] = 'An account with this email does not exist. You can not add a new user!';
-         }
+      if($email != $_SESSION['email_info']) {
+         $error[] = 'This email does not match with your email. You can not add a new user!';
       }
       
       // If no error has occurred, create the new user account
@@ -106,7 +104,7 @@ if(isset($_POST['submit'])){
 
   <form action="" method="post" id="fm">
   <div class="text-center">
-   <h1 class="mb-3 ">FREE <span class="btn btn-info opacity-75 pe-none text-light fw-bolder rounded-pill">Starter</span></h1>
+   <h1 class="mb-3 ">ADVANCED <span class="btn btn-info opacity-75 pe-none text-light fw-bolder rounded-pill">House Control</span></h1>
    <h3>register now</h3>
  </div>
    
