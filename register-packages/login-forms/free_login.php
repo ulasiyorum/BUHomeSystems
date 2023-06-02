@@ -49,7 +49,7 @@ session_start();
            
             $_SESSION['user_name'] = $userName;
             $_SESSION['email_info'] = $email;
-            header('location:../consumer_users.php');
+            header('location:../select_users/free_select_users.php');
             exit;
         
        } 

@@ -36,17 +36,18 @@ if(isset($_POST['submit'])){
          // Create an object
          $data = new stdClass();
          $data->name = $name; 
-         $data->email = $email; $data->password = $pass;
+         $data->email = $email;
+         $data->password = $pass;
 
-   //CREATE AN ARRAY 
-   $dataArray = (array) $data; 
+         //CREATE AN ARRAY 
+         $dataArray = (array) $data; 
 
-   //Convert the object to a JSON string
-   $jsonString = json_encode($dataArray);
-   $filename = '../free_users.txt'; $mode = 'a'; file_put_contents($filename,
-   $jsonString . PHP_EOL, FILE_APPEND); 
-   header("Location: ../login-forms/free_login.php"); exit();
-         } 
+         //Convert the object to a JSON string
+         $jsonString = json_encode($dataArray);
+         $filename = '../free_users.txt'; $mode = 'a'; file_put_contents($filename,
+         $jsonString . PHP_EOL, FILE_APPEND);
+         header("Location: ../login-forms/free_login.php"); exit();
+      }
       } 
    } 
 ?>
@@ -83,7 +84,7 @@ if(isset($_POST['submit'])){
                echo '<span class="error-msg">'.$error.'</span>';
             };
          }
-         ?>
+      ?>
          <input type="text" name="name" required placeholder="enter your name">
          <input type="email" name="email" required placeholder="enter your email">
          <input type="password" name="password" required placeholder="enter your password">

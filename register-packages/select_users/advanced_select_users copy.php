@@ -4,6 +4,8 @@ session_start();
 if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']))){
     header('location:login-forms/free_login.php');
 }
+$allUsers = json_decode(file_get_contents('free_sub_users.json'));
+$currentUsers = array_filter($allUsers, fn($user) => $user->email == $_SESSION['email_info']);
 ?>
 <?php 
 if(isset($_POST['submit'])){
@@ -29,32 +31,28 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }
 
-      //same email and not more than one admin
-      foreach ($dataArray as $data) {
+      if(!in_array($email, array_map(fn($item) => $item['email'],$dataArray))) {
          if ($data['email'] != $email) {
             $error[] = 'An account with this email does not exist. You can not add a new user!';
-            break;
          }
       }
       
       // If no error has occurred, create the new user account
       if (!isset($error)) {
-         // Create an object
-         $data = new stdClass();
-         $data->name = $name; 
-         $data->email = $email; $data->password = $pass;
 
-        //CREATE AN ARRAY 
-        $dataArray = (array) $data; 
+         // Create an object
+         $data = [];
+         $data['name'] = $name;
+         $data['email'] = $_SESSION['email_info'];
+
+         $allUsers[] = $data;
 
         //Convert the object to a JSON string
-        $jsonString = json_encode($dataArray);
-        $filename = 'free_users.txt'; $mode = 'a'; file_put_contents($filename,
-        $jsonString . PHP_EOL, FILE_APPEND); 
+        $jsonString = json_encode($allUsers);
+        file_put_contents('free_sub_users.json', $jsonString);
+        
         header("Location: consumer_users.php"); 
         exit();
-
-        
         } 
       } 
    } 
@@ -87,8 +85,19 @@ if(isset($_POST['submit'])){
 
     <!-- header -->
     <div class="text-light m-5 p-3 rounded " style="background-color:#6b5b95;">
-    <h1>Who is using BU Home Systems right now? <button onclick="openForm()" class="float-end"><i class="fa-solid fa-plus"></i></button></h1>
+      <div class="d-flex justify-content-between">
+         <h1>Who is using BU Home Systems right now? </h1>
+         <div>
+            <button onclick="closeForm()" class="px-3 h-100" id="close-form" style="display: none;">
+               <i class="fa-solid fa-minus"></i>
+            </button>
+            <button onclick="openForm()" class="px-3 h-100" id="open-form">
+               <i class="fa-solid fa-plus"></i>
+            </button>
+         </div>
+      </div>
     </div>
+    
 
 
      
@@ -107,7 +116,7 @@ if(isset($_POST['submit'])){
             echo '<span class="error-msg">'.$error.'</span>';
          };
       }
-      ?>
+   ?>
 
 
       <input type="text" name="name" required placeholder="enter your name">
@@ -115,24 +124,37 @@ if(isset($_POST['submit'])){
       <input type="password" name="password" required placeholder="enter your password">
       <input type="password" name="cpassword" required placeholder="confirm your password">
       <input type="submit" name="submit" value="register now" class="form-btn">
-      <p>already have an account? <a href="#">login now</a></p>
       <button type="button" class="btn btn-danger" onclick="closeForm()">Close</button>
 
    </form>
 
    </div>
+
+  
    <div class="row mx-auto" id="avatars">
-    <div class="col-lg-3 col-md-6 col-sm-12 ">
-      
-        <img src="avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
-    
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-12">
-      
-        <img src="avatars/av2.jpg" alt="" class="img-fluid rounded-circle">
-      
-    </div>
-    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="col-lg-3 col-md-6 col-sm-12 ">
+         <form action="app-pages/admin.php" method="post">
+            <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent;">
+               <img src="avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
+               <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
+            </button>
+         </form>
+      </div>
+
+    <?php foreach($currentUsers as $key => $subUser): ?>
+
+      <div class="col-lg-3 col-md-6 col-sm-12">
+            <form action="app-pages/admin.php" method="post">
+               <button name="username" value="<?= $subUser->name ?>" type="submit" style="background-color: transparent;">
+                  <img src="avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
+                  <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?= $subUser->name ?></span></h1>
+               </button>
+            </form>
+      </div>
+
+    <?php endforeach; ?>
+
+    <!-- <div class="col-lg-3 col-md-6 col-sm-12">
       
         <img src="avatars/av3.jpg" alt="" class="img-fluid rounded-circle">
       
@@ -141,16 +163,18 @@ if(isset($_POST['submit'])){
       
         <img src="avatars/av4.jpg" alt="" class="img-fluid rounded-circle">
       
+    </div>  -->
     </div> 
-   </div> 
-   
 
 
 <script>
+   
   function openForm() {
   document.getElementById("myForm").style.display = "flex";
   document.getElementById("myForm").style.minHeight = "50vh";
   document.getElementById("avatars").style.display = "none";
+  document.getElementById("close-form").style.display = "inline-block";
+  document.getElementById("open-form").style.display = "none";
   // document.getElementById("myForm").style.position = "absolute";
   // document.getElementById("avatars").style.flexDirection = "column";
   // document.getElementById("avatars").style.width = "50%";
@@ -162,8 +186,16 @@ function closeForm() {
   document.getElementById("avatars").style.flexDirection = "row";
   document.getElementById("avatars").style.width = "100%";
   document.getElementById("avatars").style.display = "flex";
+  document.getElementById("open-form").style.display = "inline-block";
+  document.getElementById("close-form").style.display = "none";
   
 }
+
+<?php
+   if(isset($error)){
+      echo 'openForm()';
+   }
+?>
 
 </script>
 
