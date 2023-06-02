@@ -76,6 +76,7 @@ if(isset($_POST['submit'])){
         z-index: 9;
         background-color: #fff;
       }
+   
     </style>
     
 </head>
@@ -88,10 +89,13 @@ if(isset($_POST['submit'])){
       <div class="d-flex justify-content-between">
          <h1>Who is using BU Home Systems right now? </h1>
          <div>
-            <button onclick="closeForm()" class="px-3 h-100" id="close-form" style="display: none;">
+            <button onclick="editUser()" class="px-3 h-100 rounded me-2" id="editBtn" >
+               <i class="fa-solid fa-user-pen fa-lg" style="color: black;"></i>
+            </button>
+            <button onclick="closeForm()" class="px-3 h-100 rounded" id="close-form" style="display: none;">
                <i class="fa-solid fa-minus"></i>
             </button>
-            <button onclick="openForm()" class="px-3 h-100" id="open-form">
+            <button onclick="openForm()" class="px-3 h-100 rounded" id="open-form">
                <i class="fa-solid fa-plus"></i>
             </button>
          </div>
@@ -134,9 +138,10 @@ if(isset($_POST['submit'])){
    <div class="row mx-auto" id="avatars">
       <div class="col-lg-3 col-md-6 col-sm-12 ">
          <form action="../app-pages/admin.php" method="post">
-            <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent;">
+            <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent; margin-top: 39px" >
                <img src="../avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
+               
             </button>
          </form>
       </div>
@@ -145,6 +150,7 @@ if(isset($_POST['submit'])){
 
       <div class="col-lg-3 col-md-6 col-sm-12">
             <form action="../app-pages/admin.php" method="post">
+               <button class="bg-danger text-light p-2 float-end"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
                <button name="username" value="<?= $subUser->name ?>" type="submit" style="background-color: transparent;">
                   <img src="../avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
                   <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?= $subUser->name ?></span></h1>
@@ -175,6 +181,7 @@ if(isset($_POST['submit'])){
   document.getElementById("avatars").style.display = "none";
   document.getElementById("close-form").style.display = "inline-block";
   document.getElementById("open-form").style.display = "none";
+  document.getElementById("editBtn").style.display = "none";
   // document.getElementById("myForm").style.position = "absolute";
   // document.getElementById("avatars").style.flexDirection = "column";
   // document.getElementById("avatars").style.width = "50%";
@@ -188,6 +195,7 @@ function closeForm() {
   document.getElementById("avatars").style.display = "flex";
   document.getElementById("open-form").style.display = "inline-block";
   document.getElementById("close-form").style.display = "none";
+  document.getElementById("editBtn").style.display = "inline-block";
   
 }
 

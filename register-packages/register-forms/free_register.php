@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) ) {
    
       
-      $fileContents = file_get_contents('../free_users.txt');
+      $fileContents = file_get_contents('../package-owners/free_users.txt');
       $jsonStrings = explode(PHP_EOL, $fileContents);
       $jsonStrings = array_filter($jsonStrings);
       $dataArray = array_map(function($jsonString) {
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])){
 
          //Convert the object to a JSON string
          $jsonString = json_encode($dataArray);
-         $filename = '../free_users.txt'; $mode = 'a'; file_put_contents($filename,
+         $filename = '../package-owners/free_users.txt'; $mode = 'a'; file_put_contents($filename,
          $jsonString . PHP_EOL, FILE_APPEND);
          header("Location: ../login-forms/free_login.php"); exit();
       }
