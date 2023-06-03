@@ -61,32 +61,87 @@
       </span>  
     </span>  
     <div>
-      <span class="my-3 switches justify-content-evenly bg-white d-flex flex-wrap">
-        <span class="my-auto">Switch 1</span>
-        <span class="my-auto">Switch 2</span>
-        <span class="my-auto">Switch 3</span>
+      <span class="m-3 switches justify-content-evenly bg-white d-flex flex-wrap">
+        <span class="d-flex flex-column bg-white shadow-sm switch">
+          <i class="fa-solid fa-couch m-auto"></i>
+          <h6 class="m-auto">Living Room</h6>
+          <div class="toggle-switch m-auto">
+            <input type="checkbox" id="toggle-living" class="toggle-input">
+            <label for="toggle-living" class="toggle-label"></label>
+          </div>
+        </span>
+        <span class="d-flex flex-column  bg-white shadow-sm switch">
+          <i class="fa-solid fa-utensils m-auto"></i>
+          <h6 class="m-auto">Kitchen</h6>
+          <div class="toggle-switch m-auto">
+            <input type="checkbox" id="toggle-kitchen" class="toggle-input">
+            <label for="toggle-kitchen" class="toggle-label"></label>
+          </div>
+        </span>
+        <span class="d-flex flex-column  bg-white shadow-sm switch">
+          <i class="fa-solid fa-child m-auto"></i>
+          <h6 class="m-auto">Kids Room</h6>
+          <div class="toggle-switch m-auto">
+            <input type="checkbox" id="toggle-kid" class="toggle-input">
+            <label for="toggle-kid" class="toggle-label"></label>
+          </div>
+        </span>
       </span>
-      <span class="my-3 switches justify-content-evenly bg-white d-flex flex-wrap">
-        <span class="my-auto mx-2">Switch 1</span>
-        <span class="my-auto">Switch 2</span>
-        <span class="my-auto">Switch 3</span>
+      <span class="m-3 switches justify-content-evenly bg-white d-flex flex-wrap">
+        <span class="d-flex flex-column bg-white shadow-sm switch">
+          <i class="fa-solid fa-door-open m-auto"></i>
+          <h6 class="m-auto">Entrance</h6>
+          <div class="toggle-switch m-auto">
+            <input type="checkbox" id="toggle-entrance" class="toggle-input2">
+            <label for="toggle-entrance" class="toggle-label"></label>
+          </div>
+        </span>
+        <span class="d-flex flex-column  bg-white shadow-sm switch">
+          <i class="fa-solid fa-warehouse m-auto"></i>
+          <h6 class="m-auto">Storeroom</h6>
+          <div class="toggle-switch m-auto">
+            <input type="checkbox" id="toggle-store" class="toggle-input2">
+            <label for="toggle-store" class="toggle-label"></label>
+          </div>
+        </span>
+        <span class="d-flex flex-column  bg-white shadow-sm switch">
+          <i class="fa-solid fa-square-parking m-auto"></i>
+          <h6 class="m-auto">Garage</h6>
+          <div class="toggle-switch m-auto">
+            <input type="checkbox" id="toggle-garage" class="toggle-input2">
+            <label for="toggle-garage" class="toggle-label"></label>
+          </div>
+        </span>
       </span>
     </div>
-
-    <span class="my-3 mx-2 air-conditioner bg-white mx-auto">
-      <button><i class="fa-solid fa-up-long"></i></button>
-      <div class="my-auto d-flex flex-column justify-content-center">
-        <h4>Air Conditioner</h4>
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-          <label class="btn btn-outline-danger btn-secondary text-white" for="btnradio1">OFF</label>
-        
-          <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-          <label class="btn btn-outline-success btn-secondary text-white" for="btnradio2">ON</label>  
-        </div>
+    <span class="bg-white air-conditioner flex-lg-row flex-column flex-sm-column">
+      <h3 class="m-auto">Air Conditioner</h3>
+      <div class="toggle-switch m-auto">
+        <input type="checkbox" id="toggle-air" class="toggle-input">
+        <label for="toggle-air" class="toggle-label"></label>
       </div>
-      <button><i class="fa-solid fa-down-long"></i></button>
+      <div class="m-auto d-flex flex-lg-column flex-sm-row">
+        <button><i class="fa-solid fa-plus"></i></button>
+        <h5 class="my-4 mx-lg-0 mx-sm-4 text-center">25C</h5>
+        <button><i class="fa-solid fa-minus"></i></button>
+      </div>
     </span>
+    <span class="logs">
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+      <h5>Log Action Date Time</h5>
+    </span>
+    <div class="m-4 h-25 mt-auto mb-5">
+      <button class="btn btn-secondary">Options</button>
+      <button class="btn btn-danger">Log Out</button>
+    </div>
   </div>
     <div id="root" class="d-flex flex-wrap justify-content-around">     
     </div>
