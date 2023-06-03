@@ -36,9 +36,6 @@
                     <a href="login-forms/free_login.php" class="mb-3 fs-2 text-decoration-none text-secondary">FREE <span class="btn btn-info opacity-75 pe-none text-light fw-bolder rounded-pill">Starter</span></a>
                 </div>
 
-                <div class="col" id="package"><a href="login-forms/advanced_login.php" class="mb-3 fs-2 text-decoration-none text-secondary">ADVANCED <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #0d6efd;">House Control</span></a>
-                </div>
-
                 <div class="col" id="package">
                 <a href="login-forms/premium_login.php" class="mb-3 fs-2 text-decoration-none text-secondary">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Security</span></a>
                 </div>
