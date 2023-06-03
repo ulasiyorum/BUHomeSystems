@@ -86,6 +86,9 @@ if(isset($_POST['submit'])){
       <div class="d-flex justify-content-between">
          <h1>Who is using BU Home Systems right now? </h1>
          <div>
+            <button onclick="toggleDeleting()" class="px-3 h-100 rounded me-2" id="editBtn" >
+               <i class="fa-solid fa-user-pen fa-lg" style="color: black;"></i>
+            </button>
             <button onclick="closeForm()" class="px-3 h-100" id="close-form" style="display: none;">
                <i class="fa-solid fa-minus"></i>
             </button>
@@ -131,7 +134,7 @@ if(isset($_POST['submit'])){
   
    <div class="row mx-auto" id="avatars">
       <div class="col-lg-3 col-md-6 col-sm-12 ">
-         <form action="../app-pages/admin.php" method="post">
+         <form action="../app-pages/admin.php" method="post" id="admin-form">
             <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent;">
                <img src="../avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
@@ -142,6 +145,9 @@ if(isset($_POST['submit'])){
     <?php foreach($currentUsers as $key => $subUser): ?>
 
       <div class="col-lg-3 col-md-6 col-sm-12">
+            <form action="./delete_premium_user.php" method="post">
+            <button name="username" value="<?= $subUser->name ?>" type="submit" style="display: none;" class="js-delete-item bg-danger text-light p-2 float-end"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
+            </form>
             <form action="../app-pages/admin.php" method="post">
                <button name="username" value="<?= $subUser->name ?>" type="submit" style="background-color: transparent;">
                   <img src="../avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
@@ -187,6 +193,21 @@ function closeForm() {
   document.getElementById("open-form").style.display = "inline-block";
   document.getElementById("close-form").style.display = "none";
   
+}
+
+var isDeletingActive = false;
+function toggleDeleting() {
+   isDeletingActive = !isDeletingActive;
+   let buttons =  document.querySelectorAll('.js-delete-item');
+
+   for(i = 0; i < buttons.length; i++) {
+      let button = buttons[i];
+      button.style.display = isDeletingActive ? 'block' :  'none';
+   }
+
+   document.getElementById('admin-form').style.marginTop = isDeletingActive ? '39px' : '0';
+   document.getElementById('editBtn').style.backgroundColor = isDeletingActive ? 'red' : '';
+   
 }
 
 <?php
