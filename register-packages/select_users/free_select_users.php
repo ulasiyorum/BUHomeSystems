@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
         $jsonString = json_encode($allUsers);
         file_put_contents('../sub_users/free_sub_users.json', $jsonString);
         
-        header("Location: free_select_users.php"); 
+        header("Location: admin.php"); 
         exit();
         } 
       } 
@@ -225,6 +225,15 @@ function toggleDeleting() {
       echo 'openForm()';
    }
 ?>
+
+
+
+
+
+
+
+
+
 
 </script>
 
