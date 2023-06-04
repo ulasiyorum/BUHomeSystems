@@ -69,7 +69,7 @@ if(isset($_POST['submit'])){
 
    <form action="" method="post">
    <div class="text-center">
-      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Security</span></h1>
+      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Advanced</span></h1>
    <h3>register now</h3>
     </div>
       

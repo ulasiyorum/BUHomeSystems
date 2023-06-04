@@ -80,7 +80,7 @@ session_start();
 
 <form method="post" action="">
 <div class="text-center">
-      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Security</span></h1>
+      <h1 class="mb-3 ">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Advanced</span></h1>
    <h3>login now</h3>
     </div>
    <?php
@@ -94,6 +94,7 @@ session_start();
    <input type="email" name="email" required placeholder="enter your email" >
    <input type="password" name="password" required placeholder="enter your password" >
    <input type="submit" name="submit" value="login now" class="form-btn">
+   <p>don't have an account? <a href="../register-forms/premium_register.php">register now</a></p>
   
    
 </form>

@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col" id="package">
-                <a href="login-forms/premium_login.php" class="mb-3 fs-2 text-decoration-none text-secondary">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Security</span></a>
+                <a href="login-forms/premium_login.php" class="mb-3 fs-2 text-decoration-none text-secondary">Premium <span class="btn pe-none text-light fw-bolder rounded-pill" style="background-color: #6c757d;">Advanced</span></a>
                 </div>
             
             </div>
