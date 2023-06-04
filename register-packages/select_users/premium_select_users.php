@@ -31,9 +31,9 @@ if(isset($_POST['submit'])){
          $error[] = 'password not matched!';
       }
 
-      if(!in_array($email, array_map(fn($item) => $item['email'],$dataArray))) {
-            $error[] = 'An account with this email does not exist. You can not add a new user!';
-      }
+      if($email != $_SESSION['email_info']) {
+         $error[] = 'This email does not match with yours. You can not add a new user!';
+   }
 
       // if user limit exceed
       if (count($currentUsers) >= 3) {
@@ -112,7 +112,7 @@ if(isset($_POST['submit'])){
 
   <form action="" method="post" id="fm">
   <div class="text-center">
-   <h1 class="mb-3 ">PREMIUM <span class="btn btn-info opacity-75 pe-none text-light fw-bolder rounded-pill">Security</span></h1>
+   <h1 class="mb-3 ">PREMIUM <span class="btn opacity-75 pe-none text-light fw-bolder rounded-pill" style="background-color:#6c757d ;">Advanced</span></h1>
    <h3>register now</h3>
  </div>
    
@@ -184,6 +184,7 @@ if(isset($_POST['submit'])){
   document.getElementById("avatars").style.display = "none";
   document.getElementById("close-form").style.display = "inline-block";
   document.getElementById("open-form").style.display = "none";
+  document.getElementById("editBtn").style.display = "none";
   // document.getElementById("myForm").style.position = "absolute";
   // document.getElementById("avatars").style.flexDirection = "column";
   // document.getElementById("avatars").style.width = "50%";
@@ -197,6 +198,7 @@ function closeForm() {
   document.getElementById("avatars").style.display = "flex";
   document.getElementById("open-form").style.display = "inline-block";
   document.getElementById("close-form").style.display = "none";
+  document.getElementById("editBtn").style.display = "inline-block";
   
 }
 
