@@ -141,6 +141,7 @@ if(isset($_POST['submit'])){
       <div class="col-lg-3 col-md-6 col-sm-12 ">
          <form action="../app-pages/admin.php" method="post" id="admin-form">
             <button name="username" value="<?= $_SESSION['user_name']?>" type="submit" style="background-color: transparent;" >
+               <input type="hidden" name="userType" value="admin">
                <img src="../avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
                
@@ -156,6 +157,7 @@ if(isset($_POST['submit'])){
          </form>
          <form action="../app-pages/admin.php" method="post">
             <button name="username" value="<?= $subUser->name?>" type="submit" style="background-color: transparent;">
+               <input type="hidden" name="userType" value="user">
                <img src="../avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?= $subUser->name ?></span></h1>
             </button>
