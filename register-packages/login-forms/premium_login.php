@@ -48,6 +48,7 @@ session_start();
          // Redirect to the appropriate page based on user type
             $_SESSION['user_name'] = $userName;
             $_SESSION['email_info'] = $email;
+            $_SESSION['package_type'] = 1;
             header('location:../select_users/premium_select_users.php');
             exit;
      } 

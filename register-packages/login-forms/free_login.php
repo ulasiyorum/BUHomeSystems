@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 
    // Get the email and password from the login form
@@ -46,9 +44,9 @@ session_start();
        }
        if ($matchFound) {
            // Redirect to the appropriate page based on user type
-           
             $_SESSION['user_name'] = $userName;
             $_SESSION['email_info'] = $email;
+            $_SESSION['package_type'] = 0;
             header('location:../select_users/free_select_users.php');
             exit;
         

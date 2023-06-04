@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']))){
+if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']) || isset($_SESSION['package_type']) )){
     header('location:../login-forms/free_login.php');
 }
 $allUsers = json_decode(file_get_contents('../sub_users/free_sub_users.json'));
@@ -12,8 +12,7 @@ if(isset($_POST['submit'])){
    $name = $_POST['name'];
    $email = $_POST['email'];
    $pass = $_POST['password'];
-   $cpass = $_POST['cpassword'];
-   
+   $cpass = $_POST['cpassword'];  
 
    // Check if all required fields have been filled in
    if(!empty($name) && !empty($email) && !empty($pass) && !empty($cpass) ) {
@@ -141,7 +140,7 @@ if(isset($_POST['submit'])){
    <div class="row mx-auto" id="avatars">
       <div class="col-lg-3 col-md-6 col-sm-12 ">
          <form action="../app-pages/admin.php" method="post" id="admin-form">
-            <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent;" >
+            <button name="username" value="<?= $_SESSION['user_name']?>" type="submit" style="background-color: transparent;" >
                <img src="../avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
                
@@ -156,7 +155,7 @@ if(isset($_POST['submit'])){
             <button name="username" value="<?= $subUser->name ?>" type="submit" style="display: none;" class="js-delete-item bg-danger text-light p-2 float-end"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></button>
          </form>
          <form action="../app-pages/admin.php" method="post">
-            <button name="username" value="<?= $subUser->name ?>" type="submit" style="background-color: transparent;">
+            <button name="username" value="<?= $subUser->name?>" type="submit" style="background-color: transparent;">
                <img src="../avatars/av<?= $key + 2 ?>.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?= $subUser->name ?></span></h1>
             </button>

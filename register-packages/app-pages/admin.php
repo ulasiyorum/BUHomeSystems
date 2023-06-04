@@ -10,7 +10,13 @@ if(isset($_POST['username'])) {
     $username = ''; // Set a default value if the username is not available
 }
 
-$data = array('username' => $username); // Create an associative array
+if(isset($_SESSION['package_type'])) {
+    $packageType=  $_SESSION['package_type'] ;
+}else {
+    $packageType = ''; // Set a default value if the username is not available
+}
+
+$data = array('username' => $username, 'package' => $packageType); // Create an associative array
 $jsonData = json_encode($data); // Convert the array to JSON format
 
 // Store the JSON data in a file

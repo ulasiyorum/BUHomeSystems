@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']))){
+if(!(isset($_SESSION['user_name']) || isset($_SESSION['email_info']) || isset($_SESSION['package_type']) )){
     header('location:../login-forms/free_login.php');
 }
 $allUsers = json_decode(file_get_contents('../sub_users/premium_sub_users.json'));
@@ -135,7 +135,7 @@ if(isset($_POST['submit'])){
    <div class="row mx-auto" id="avatars">
       <div class="col-lg-3 col-md-6 col-sm-12 ">
          <form action="../app-pages/admin.php" method="post" id="admin-form">
-            <button name="username" value="<?= $_SESSION['user_name'] ?>" type="submit" style="background-color: transparent;">
+            <button name="username" value="<?= $_SESSION['user_name']?>" style="background-color: transparent;">
                <img src="../avatars/av1.jpg" alt="" class="img-fluid rounded-circle">
                <h1 class="text-center rounded text-light mt-2" style="background-color: #6b5b95;"><span><?php echo $_SESSION['user_name'] ?></span></h1>
             </button>
