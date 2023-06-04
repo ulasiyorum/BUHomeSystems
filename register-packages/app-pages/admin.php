@@ -22,6 +22,7 @@ $jsonData = json_encode($data); // Convert the array to JSON format
 // Store the JSON data in a file
 $file = 'username.json';
 file_put_contents($file, $jsonData);
-print_r(file_get_contents($file));
+
+header('location:random.html');
 ?>
 

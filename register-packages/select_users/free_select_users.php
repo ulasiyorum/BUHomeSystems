@@ -226,14 +226,6 @@ function toggleDeleting() {
 ?>
 
 
-
-
-
-
-
-
-
-
 </script>
 
 

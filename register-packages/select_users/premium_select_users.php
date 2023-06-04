@@ -34,6 +34,11 @@ if(isset($_POST['submit'])){
       if(!in_array($email, array_map(fn($item) => $item['email'],$dataArray))) {
             $error[] = 'An account with this email does not exist. You can not add a new user!';
       }
+
+      // if user limit exceed
+      if (count($currentUsers) >= 3) {
+         $error[] = 'Maxiumum user limit exceed. Can not add anymore.';
+      }
       
       // If no error has occurred, create the new user account
       if (!isset($error)) {
