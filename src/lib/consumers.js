@@ -187,6 +187,7 @@ function fetchToDos() {
 
     const number = index + 1;
     const title = element.title;
+
     const description = element.description;
     const data = 
     `<span id=toDoId${number}  class="m-4 d-flex flex-row justify-content-between">

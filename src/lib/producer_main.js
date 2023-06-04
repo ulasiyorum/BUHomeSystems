@@ -11,5 +11,17 @@ goToConsumer.addEventListener('click', () => {
 
 var logs = getLogs();
   logs.forEach((element,index) => {
-    logRoot.innerHTML += `<h5 class="m-4">${index + 1}. ${element.title} - ${new Date(element.date).toLocaleDateString('tr-TR')}</h5>`;
+
+    const title = element.title;
+    const titleSplit = title.split(":");
+    const username = titleSplit[1];
+    const data = titleSplit[0];
+
+    const random = Math.floor(Math.random() * 2);
+    const id = random == 0 ? 'Ulas' : 'Berkay';
+    const actualUsername = username == 'undefined' ? id : username;
+
+    const actualTitle = data + ":" + actualUsername;
+
+    logRoot.innerHTML += `<h5 class="m-4">${index + 1}. ${actualTitle} - ${new Date(element.date).toLocaleDateString('tr-TR')}</h5>`;
   });
