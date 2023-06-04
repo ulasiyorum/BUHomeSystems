@@ -44,20 +44,15 @@
         </script>
       </div> 
     </div>
-    <span id="toDoRoot" class="bg-white mx-4 toDoList d-flex flex-column">
+    <span class="bg-white mx-4 toDoList d-flex flex-column">
       <h3 class="mx-auto my-3">To-Do List</h3>
-      <span class="m-4 d-flex flex-row justify-content-between">
-        <h5 class="m-2">1.</h5>
-        <h5 class="m-2">To-Do Baslik</h5>
-        <h5 class="m-2">AAA</h5>
-        <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+      <span id="toDoRoot" class="d-flex flex-column">
+
       </span>
       <span class="addToDo">
-        <input placeholder="To-Do..">
-        <input placeholder="Description/Priority">
-      
-      
-        <button class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
+        <input id="toDoInput1" placeholder="To-Do..">
+        <input id="toDoInput2" placeholder="Description/Priority">
+        <button id="addToDoButton" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
       </span>  
     </span>  
     <div>
@@ -126,25 +121,16 @@
         <button><i class="fa-solid fa-minus"></i></button>
       </div>
     </span>
-    <span class="logs">
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
-      <h5>Log Action Date Time</h5>
+    <span id="logRoot" class="logs">
+
     </span>
     <div class="m-4 h-25 mt-auto mb-5">
-      <button class="btn btn-secondary">Options</button>
       <button class="btn btn-danger">Log Out</button>
     </div>
   </div>
     <div id="root" class="d-flex flex-wrap justify-content-around">     
+      
     </div>
-    <script type="module" src="./lib/producer_main.js"></script>
+    <script type="module" src="../lib/producer_main.js"></script>
   </body>
 </html>
