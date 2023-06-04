@@ -10,7 +10,14 @@ if(isset($_POST['username'])) {
 
     $allUsers = json_decode(file_get_contents('../sub_users/premium_sub_users.json'));
     $filteredUsers = array_filter($allUsers, fn($user) => $user->name != $username);
-    file_put_contents('../sub_users/premium_sub_users.json', json_encode($filteredUsers));
+
+    // If the filtered array is empty, set it as an empty array
+    if (empty($filteredUsers)) {
+        $filteredUsers = [];
+    }
+
+     $jsonString = json_encode(array_values($filteredUsers));
+    file_put_contents('../sub_users/premium_sub_users.json', $jsonString);
 }
 
 header('location:premium_select_users.php');

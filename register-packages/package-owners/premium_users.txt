@@ -1,1 +1,3 @@
 {"name":"burak","email":"burak@gmail.com","password":"123"}
+{"name":"ulas","email":"ulas@gmail.com","password":"123"}
+{"name":"can","email":"can@gmail.com","password":"123"}
