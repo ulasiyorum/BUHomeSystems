@@ -131,14 +131,20 @@ ul {
     height: 16vh;
 }
 
+.line {
+    width: 50vw;
+    height: 1.2px;
+    background-color: #4a4a4a;
+}
+
 .logs {
     display: flex;
     overflow: auto;
     flex-direction: column;
-    height: 32vh;
-    margin: 1.75rem;
+    height:76vh;
+    margin: auto;
     background-color: white;
-    width: 25vw;
+    width: 64vw;
     border-radius: 0.4rem;
 }
 

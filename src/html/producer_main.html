@@ -15,122 +15,14 @@
       <h1 class="text-center my-4">PRODUCER</h1>
       <button class="btn"><i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>LOG OUT</button>
     </div>
-  <div class="d-flex flex-wrap">
-    <div class="card m-4" style="width: 18rem;">
-      <div class="card-body">
-        <canvas id="myChart"></canvas>
-        <script>
-          var ctx = document.getElementById('myChart').getContext('2d');
-          var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-              labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-              datasets: [{
-                label: 'Electric Consumption (kw)',
-                data: [12, 19, 3, 5, 2, 3, 5], // Example data
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 4
-              }]
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true
-                }
-              }
-            }
-          });
-        </script>
-      </div> 
-    </div>
-    <span class="bg-white mx-4 toDoList d-flex flex-column">
-      <h3 class="mx-auto my-3">To-Do List</h3>
-      <span id="toDoRoot" class="d-flex flex-column">
-
-      </span>
-      <span class="addToDo">
-        <input id="toDoInput1" placeholder="To-Do..">
-        <input id="toDoInput2" placeholder="Description/Priority">
-        <button id="addToDoButton" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
-      </span>  
-    </span>  
-    <div>
-      <span class="m-3 switches justify-content-evenly bg-white d-flex flex-wrap">
-        <span class="d-flex flex-column bg-white shadow-sm switch">
-          <i class="fa-solid fa-couch m-auto"></i>
-          <h6 class="m-auto">Living Room</h6>
-          <div class="toggle-switch m-auto">
-            <input type="checkbox" id="toggle-living" class="toggle-input">
-            <label for="toggle-living" class="toggle-label"></label>
-          </div>
-        </span>
-        <span class="d-flex flex-column  bg-white shadow-sm switch">
-          <i class="fa-solid fa-utensils m-auto"></i>
-          <h6 class="m-auto">Kitchen</h6>
-          <div class="toggle-switch m-auto">
-            <input type="checkbox" id="toggle-kitchen" class="toggle-input">
-            <label for="toggle-kitchen" class="toggle-label"></label>
-          </div>
-        </span>
-        <span class="d-flex flex-column  bg-white shadow-sm switch">
-          <i class="fa-solid fa-child m-auto"></i>
-          <h6 class="m-auto">Kids Room</h6>
-          <div class="toggle-switch m-auto">
-            <input type="checkbox" id="toggle-kid" class="toggle-input">
-            <label for="toggle-kid" class="toggle-label"></label>
-          </div>
-        </span>
-      </span>
-      <span class="m-3 switches justify-content-evenly bg-white d-flex flex-wrap">
-        <span class="d-flex flex-column bg-white shadow-sm switch">
-          <i class="fa-solid fa-door-open m-auto"></i>
-          <h6 class="m-auto">Entrance</h6>
-          <div class="toggle-switch m-auto">
-            <input type="checkbox" id="toggle-entrance" class="toggle-input2">
-            <label for="toggle-entrance" class="toggle-label"></label>
-          </div>
-        </span>
-        <span class="d-flex flex-column  bg-white shadow-sm switch">
-          <i class="fa-solid fa-warehouse m-auto"></i>
-          <h6 class="m-auto">Storeroom</h6>
-          <div class="toggle-switch m-auto">
-            <input type="checkbox" id="toggle-store" class="toggle-input2">
-            <label for="toggle-store" class="toggle-label"></label>
-          </div>
-        </span>
-        <span class="d-flex flex-column  bg-white shadow-sm switch">
-          <i class="fa-solid fa-square-parking m-auto"></i>
-          <h6 class="m-auto">Garage</h6>
-          <div class="toggle-switch m-auto">
-            <input type="checkbox" id="toggle-garage" class="toggle-input2">
-            <label for="toggle-garage" class="toggle-label"></label>
-          </div>
-        </span>
-      </span>
-    </div>
-    <span class="bg-white air-conditioner flex-lg-row flex-column flex-sm-column">
-      <h3 class="m-auto">Air Conditioner</h3>
-      <div class="toggle-switch m-auto">
-        <input type="checkbox" id="toggle-air" class="toggle-input">
-        <label for="toggle-air" class="toggle-label"></label>
-      </div>
-      <div class="m-auto d-flex flex-lg-column flex-sm-row">
-        <button><i class="fa-solid fa-plus"></i></button>
-        <h5 class="my-4 mx-lg-0 mx-sm-4 text-center">25C</h5>
-        <button><i class="fa-solid fa-minus"></i></button>
-      </div>
+    <span id="logRoot" class="logs shadow-lg">
+      <h3 class="mx-auto my-2">Logs</h3>
+      <div class="line mx-auto my-2"></div>
     </span>
-    <span id="logRoot" class="logs">
-
-    </span>
-    <div class="m-4 h-25 mt-auto mb-5">
-      <button class="btn btn-danger">Log Out</button>
+    <div class="m-4 h-25 d-flex">
+      <button class="btn m-auto btn-outline-success btn-light">Go to Consumer Page</button>
     </div>
   </div>
-    <div id="root" class="d-flex flex-wrap justify-content-around">     
-      
-    </div>
     <script type="module" src="../lib/producer_main.js"></script>
   </body>
 </html>
