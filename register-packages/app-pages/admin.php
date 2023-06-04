@@ -16,13 +16,25 @@ if(isset($_SESSION['package_type'])) {
     $packageType = ''; // Set a default value if the username is not available
 }
 
-$data = array('username' => $username, 'package' => $packageType); // Create an associative array
+if(isset($_POST['userType'])) {
+    $userType=  $_POST['userType'] ;
+}else {
+    $userType = ''; // Set a default value if the username is not available
+}
+
+
+$data = array('username' => $username, 'package' => $packageType, 'userType' => $userType); // Create an associative array
 $jsonData = json_encode($data); // Convert the array to JSON format
 
 // Store the JSON data in a file
-$file = 'username.json';
+$file = 'userInfo.json';
 file_put_contents($file, $jsonData);
+print_r($file);
 
-header('location:random.html');
+if ($userType == "admin") {
+    header('Location: random.html');
+} else {
+    header('Location: random2.html');
+}
 ?>
 
