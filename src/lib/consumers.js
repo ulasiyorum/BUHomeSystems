@@ -1,5 +1,6 @@
 import consume, { startConsuming , consumeFromId } from "./electricityConsumer.js";
 import savelog from "./logger.js";
+import { getCurrentUser } from "./users.js";
 
 const toDoRoot = document.getElementById('toDoRoot');
 const addToDoButton = document.getElementById('addToDoButton');
@@ -78,6 +79,8 @@ storeroom.addEventListener('change', () => {
     consumeFromId("storeroom");
   }
 });
+
+
 
 
 garage.addEventListener('change', () => {
