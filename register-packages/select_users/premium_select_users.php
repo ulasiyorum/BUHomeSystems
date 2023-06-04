@@ -198,6 +198,7 @@ function closeForm() {
   document.getElementById("avatars").style.display = "flex";
   document.getElementById("open-form").style.display = "inline-block";
   document.getElementById("close-form").style.display = "none";
+  document.getElementById("editBtn").style.display = "inline-block";
   
 }
 
