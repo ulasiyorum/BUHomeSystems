@@ -32,9 +32,11 @@ file_put_contents($file, $jsonData);
 print_r($file);
 
 if ($userType == "admin") {
-    header('Location: random.html');
-} else {
-    header('Location: random2.html');
+    header('Location: ../../src/html/producer_main.html');
+} else if($packageType == '0') {
+    header('Location: ../../src/html/consumer_free.html');
 }
+else
+header('Location: ../../src/html/consumer_main.html');
 ?>
 
