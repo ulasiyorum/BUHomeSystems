@@ -20,23 +20,20 @@
       <div class="card-body">
         <canvas id="myChart"></canvas>
         <script type="module">
-        import { getConsumingItems } from "../lib/electricityConsumer.js";
+        import { getConsumeByDay } from "../lib/electricityConsumer.js";
             var ctx = document.getElementById('myChart').getContext('2d');
           
             const labels = [];
             const data = [];
-            const consumingItems = getConsumingItems();
+
             const today = new Date();
             const sevenDaysAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 
-            for (const item of consumingItems) {
-            const itemDate = new Date(item.year, item.month - 1, item.year);
-
-            
-            if (itemDate >= sevenDaysAgo && itemDate <= today) {
-                labels.push(item.day + "." + item.month);
-                data.push(item.consumption);
-            }
+            for (let i = 0; i < 7; i++) {
+            const itemDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() - i);    
+            const item = getConsumeByDay(itemDate.getDay(), itemDate.getMonth(), itemDate.getFullYear());
+            data.push(item);
+            labels.push(itemDate.toDateString());
             }
 
 
@@ -68,7 +65,7 @@
     </div>
     <span class="bg-white mx-4 toDoList d-flex flex-column">
       <h3 class="mx-auto my-3">To-Do List</h3>
-      <span id="toDoRoot" class="d-flex flex-column">
+      <span id="toDoRoot" class="d-flex flex-column overflow-auto">
 
       </span>
       <span class="addToDo">
@@ -138,9 +135,12 @@
         <label for="toggle-air" class="toggle-label"></label>
       </div>
       <div class="m-auto d-flex flex-lg-column flex-sm-row">
-        <button><i class="fa-solid fa-plus"></i></button>
-        <h5 class="my-4 mx-lg-0 mx-sm-4 text-center">25C</h5>
-        <button><i class="fa-solid fa-minus"></i></button>
+        <button id="plusC"><i class="fa-solid fa-plus"></i></button>
+        <div class="d-flex mx-lg-0 mx-sm-4 flex-row">
+        <h5 id="degree" class="my-4  text-center">25</h5>
+        <h5 class="my-4 text-center">C</h5>
+        </div>
+        <button id="minusC"><i class="fa-solid fa-minus"></i></button>
       </div>
     </span>
   </div>

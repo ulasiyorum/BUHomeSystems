@@ -40,9 +40,8 @@ export function consumeFromId(id) {
     var items = getConsumingItems();
     var item = items.find(item => item.id == id);
     if (item) {
-        var electricity = item.electrictyPerSecond * ((new Date() - item.startDate) / 1000);
-        consume(electricity);
-
+        var electricity = item.electrictyPerSecond * ((new Date()).getTime() - new Date(item.startDate).getTime()) / 1000000;
+        consume(electricity); 
         items = items.filter(item => item.id != id);
     }
 }
