@@ -3,12 +3,28 @@
     
 }
 
+.fix-size {
+    min-height: 25vh;
+}
+
 body {
     background: linear-gradient(to bottom, #f1f6f9, #c9d6ff);
     height: 100%;
 }
 ul {
     list-style: none;
+}
+
+.h-inherit {
+    min-height: inherit;
+}
+
+.h-full {
+    min-height: inherit;
+}
+
+.mt-auto {
+    margin-top: auto;
 }
 
 .active {
